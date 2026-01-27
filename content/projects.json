@@ -1,0 +1,18 @@
+[
+  {
+    "title": "MAVIS",
+    "description": "Adding long read support to MAVIS (Merging, Annotation, Validation, and Illustration of Structural variants), enabling comprehensive structural variant analysis from Oxford Nanopore and PacBio sequencing data.",
+    "tags": ["Python", "Bioinformatics", "Long Reads", "Structural Variants"],
+    "github": "https://github.com/bcgsc/mavis"
+  },
+  {
+    "title": "Ancillary Long Reads Analysis Support",
+    "description": "Developing supplementary analysis tools and pipelines for long-read sequencing workflows, including quality control, visualization, and integration with existing bioinformatics infrastructure.",
+    "tags": ["Snakemake", "Nanopore", "Python", "Bioinformatics"]
+  },
+  {
+    "title": "From Scratch Series",
+    "description": "Implementing fundamental algorithms and data structures from scratch to deeply understand how they work. Coming soon.",
+    "tags": ["Algorithms", "Learning", "Python"]
+  }
+]

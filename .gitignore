@@ -1,0 +1,27 @@
+# Documentation - exclude from publish
+README.md
+CLAUDE.md
+*.md
+
+# Sensitive files
+.env
+.env.*
+*.key
+*.pem
+credentials*
+secrets*
+
+# Debug/test files
+debug.html
+test.html
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
+.idea/
+.vscode/

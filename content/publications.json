@@ -1,0 +1,65 @@
+[
+  {
+    "title": "Long-read sequencing of an advanced cancer cohort resolves rearrangements, unravels haplotypes, and reveals methylation landscapes",
+    "authors": "Fan J, O'Neill K, Pleasance E, Akbari V, Chang G, Dixon K, Csizmok V, MacLennan S, Porter V, Galbraith A, Grisdale CJ, Culibrk L, ... Jones SJM",
+    "venue": "Cell Reports Medicine",
+    "year": 2024,
+    "links": {
+      "Paper": "https://pubmed.ncbi.nlm.nih.gov/39406235/"
+    }
+  },
+  {
+    "title": "The benefit of a complete reference genome for cancer structural variant analysis",
+    "authors": "Fan J, Paulin LF, O'Neill K, Pleasance E, Porter VL, Jones SJM, Sedlazeck FJ",
+    "venue": "medRxiv",
+    "year": 2024,
+    "links": {
+      "Paper": "https://doi.org/10.1101/2024.03.15.24304369"
+    }
+  },
+  {
+    "title": "Prognostication with thyroid GuidePx in the context of tall cell variants",
+    "authors": "Craig S, Stretch C, Yeo C, Fan J, Pedersen H, Park YJ, Harvey A, Bathe OF",
+    "venue": "Surgery",
+    "year": 2024,
+    "links": {
+      "Paper": "https://doi.org/10.1016/j.surg.2024.06.080"
+    }
+  },
+  {
+    "title": "Genomic structures and regulation patterns at HPV integration sites in cervical cancer",
+    "authors": "Porter VL, O'Neill K, MacLennan S, Corbett RD, Ng M, Culibrk L, Hamadeh Z, Iden M, Schmidt R, Tsaih SW, Chang G, Fan J, ... Marra MA",
+    "venue": "Nature Communications",
+    "year": 2024,
+    "links": {
+      "Paper": "https://pubmed.ncbi.nlm.nih.gov/39638560/"
+    }
+  },
+  {
+    "title": "Risk factors for early-onset colorectal cancer: A systematic review and meta-analysis",
+    "authors": "O'Sullivan DE, Sutherland RL, Town S, Chow K, Fan J, Forbes N, Heitman SJ, Hilsden RJ, Brenner DR",
+    "venue": "Clinical Gastroenterology and Hepatology",
+    "year": 2022,
+    "links": {
+      "Paper": "https://doi.org/10.1016/j.cgh.2021.01.037"
+    }
+  },
+  {
+    "title": "BugSeq: a highly accurate cloud platform for long-read metagenomic analyses",
+    "authors": "Fan J, Huang S, Chorlton SD",
+    "venue": "BMC Bioinformatics",
+    "year": 2021,
+    "links": {
+      "Paper": "https://doi.org/10.1186/s12859-021-04089-5"
+    }
+  },
+  {
+    "title": "A Systematic Review of the Effect of Lifestyle Interventions on Adipose Tissue Gene Expression: Implications for Carcinogenesis",
+    "authors": "Campbell KL, Landells CE, Fan J, Brenner DR",
+    "venue": "Obesity",
+    "year": 2017,
+    "links": {
+      "Paper": "https://doi.org/10.1002/oby.22010"
+    }
+  }
+]

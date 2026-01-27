@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Jeremy Fan - Bioinformatician and Data Analyst">
+  <title>Jeremy Fan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <div class="container">
+    <header class="header">
+      <a href="#about" class="logo">JF</a>
+      <nav class="nav" role="navigation" aria-label="Main navigation">
+        <button class="nav-toggle" aria-expanded="false" aria-label="Toggle menu">
+          <span></span><span></span>
+        </button>
+        <ul class="nav-list">
+          <li><a href="#about" class="nav-link active" data-section="about">About</a></li>
+          <li><a href="#publications" class="nav-link" data-section="publications">Publications</a></li>
+          <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
+          <li><a href="#blog" class="nav-link" data-section="blog">Blog</a></li>
+          <li><a href="#readings" class="nav-link" data-section="readings">Readings</a></li>
+        </ul>
+      </nav>
+      <button class="theme-toggle" aria-label="Toggle dark mode">
+        <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+        </svg>
+        <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+    </header>
+
+    <main id="main-content">
+      <!-- About -->
+      <section id="about" class="section active" aria-labelledby="about-heading">
+        <h2 id="about-heading" class="section-title">About</h2>
+        <div class="section-content">
+          <p>Hi, I’m Jeremy. Bioinformatics-trained senior analyst bridging genomics, healthcare data, and software development. Biotech enthusiast.</p>
+          <ul class="highlights">
+            <li>Senior Business Analyst at Provincial Health Services Authority</li>
+            <li>MSc Bioinformatics from UBC (Genome Sciences Centre)</li>
+            <li>First-author publications in cancer genomics and metagenomics</li>
+          </ul>
+          <div class="contact-links">
+            <a href="https://www.linkedin.com/in/jeremy-f-0a9039a1/" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+
+          <!-- Mini Terminal -->
+          <div class="terminal">
+            <div class="term-header">
+              <span class="term-dot"></span>
+              <span class="term-dot"></span>
+              <span class="term-dot"></span>
+              <span class="term-title">terminal</span>
+            </div>
+            <div id="term-output" class="term-output"></div>
+            <div class="term-input-row">
+              <span class="term-prompt">→</span>
+              <input type="text" id="term-input" class="term-input" placeholder="type help" autocomplete="off" spellcheck="false">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Publications -->
+      <section id="publications" class="section" aria-labelledby="publications-heading">
+        <h2 id="publications-heading" class="section-title">Publications</h2>
+        <div id="publications-list" class="section-content">
+          <p class="loading">Loading...</p>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects" class="section" aria-labelledby="projects-heading">
+        <h2 id="projects-heading" class="section-title">Projects</h2>
+        <div id="projects-list" class="section-content">
+          <p class="loading">Loading...</p>
+        </div>
+      </section>
+
+      <!-- Blog -->
+      <section id="blog" class="section" aria-labelledby="blog-heading">
+        <h2 id="blog-heading" class="section-title">Blog</h2>
+        <div class="section-content">
+          <div id="blog-list"><p class="loading">Loading...</p></div>
+          <article id="blog-post" hidden>
+            <button class="back-btn">&larr; Back</button>
+            <div id="blog-post-content"></div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Readings -->
+      <section id="readings" class="section" aria-labelledby="readings-heading">
+        <h2 id="readings-heading" class="section-title">Readings</h2>
+        <p class="section-intro">Books and articles I've found valuable, with notes.</p>
+        <div id="readings-list" class="section-content">
+          <p class="loading">Loading...</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; 2026</p>
+    </footer>
+  </div>
+
+  <script src="assets/js/marked.min.js"></script>
+  <script>
+    // Fallback: if local marked.js failed to load, try CDN
+    if (typeof marked === 'undefined') {
+      console.warn('Local marked.js failed, trying unpkg CDN...');
+      document.write('<script src="https://unpkg.com/marked@9.1.6/marked.min.js"><\/script>');
+    }
+  </script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
