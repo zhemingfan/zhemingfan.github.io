@@ -353,7 +353,16 @@ main { flex: 1; padding: 48px 0; }
   border-bottom: 1px solid var(--border);
 }
 .reading-item:last-child { border-bottom: none; }
-.reading-title { font-weight: 500; }
+a.reading-title { font-weight: 500; text-decoration: none; color: var(--text); }
+a.reading-title:hover { color: var(--accent); }
+.reading-tags { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 6px; }
+.reading-tags .tag { cursor: pointer; transition: background-color 0.2s, color 0.2s; }
+.reading-tags .tag:hover { background-color: var(--accent); color: var(--bg); }
+.reading-tags .tag.active { background-color: var(--accent); color: var(--bg); }
+.reading-filter { margin-bottom: 16px; display: flex; align-items: center; gap: 8px; font-size: 0.9rem; color: var(--text-muted); }
+.reading-filter .tag { cursor: default; }
+.clear-filter { background: none; border: 1px solid var(--border); color: var(--text-muted); padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 0.8rem; }
+.clear-filter:hover { border-color: var(--accent); color: var(--accent); }
 .reading-meta { font-size: 0.9rem; color: var(--text-muted); margin-top: 2px; }
 .reading-note { font-size: 0.9rem; color: var(--text); margin-top: 8px; line-height: 1.5; }
 .reading-added { font-size: 0.75rem; color: var(--text-muted); margin-top: 8px; opacity: 0.7; }

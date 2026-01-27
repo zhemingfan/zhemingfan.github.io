@@ -1,1 +1,18 @@
-[]
+[
+  {
+    "title": "How do you use a virtual cell to do something actually useful?",
+    "author": "Abhishaike Mahajan",
+    "note": "Explores practical applications of virtual cell models in cancer drug development, demonstrating how computational models trained on human tumor data can identify immunotherapy responders, refine clinical trial eligibility, and discover therapeutic targets.",
+    "added": "2026-01-27",
+    "url": "https://www.owlposting.com/p/how-do-you-use-a-virtual-cell-to",
+    "tags": ["computational biology", "drug discovery"]
+  },
+  {
+    "title": "Some questions about biotech that I find interesting",
+    "author": "Alex Telford",
+    "note": "Collection of open questions about the biotech and pharma industries, spanning R&D productivity, corporate dynamics, drug discovery mechanics, and regulatory frameworks.",
+    "added": "2026-01-27",
+    "url": "https://atelfo.github.io/2024/04/01/biotech-questions.html",
+    "tags": ["biotech"]
+  }
+]

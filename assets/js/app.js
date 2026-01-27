@@ -201,30 +201,63 @@
   }
 
   // Readings
+  let allReadings = [];
+  let activeTagFilter = null;
+
   async function loadReadings() {
     try {
       const res = await fetch('./content/readings.json');
       if (!res.ok) throw new Error('Failed');
-      const readings = await res.json();
-      renderReadings(readings);
+      allReadings = await res.json();
+      renderReadings(allReadings);
     } catch (e) {
       $('#readings-list').innerHTML = '<p class="muted">More to come.</p>';
     }
   }
 
   function renderReadings(readings) {
-    if (!readings.length) {
+    if (!allReadings.length) {
       $('#readings-list').innerHTML = '<p class="muted">More to come.</p>';
       return;
     }
-    $('#readings-list').innerHTML = readings.map(r => `
+
+    const filterHtml = activeTagFilter
+      ? `<div class="reading-filter">Filtered by: <span class="tag active">${esc(activeTagFilter)}</span> <button class="clear-filter">Clear</button></div>`
+      : '';
+
+    const readingsHtml = readings.map(r => `
       <article class="reading-item">
-        <div class="reading-title">${esc(r.title)}</div>
+        <a href="${esc(r.url)}" target="_blank" rel="noopener" class="reading-title">${esc(r.title)}</a>
         <div class="reading-meta">by ${esc(r.author)}</div>
+        ${r.tags ? `<div class="reading-tags">${r.tags.map(t => `<span class="tag${activeTagFilter === t ? ' active' : ''}" data-tag="${esc(t)}">${esc(t)}</span>`).join('')}</div>` : ''}
         ${r.note ? `<div class="reading-note">${esc(r.note)}</div>` : ''}
         <div class="reading-added">Added ${formatDate(r.added)}</div>
       </article>
     `).join('');
+
+    $('#readings-list').innerHTML = filterHtml + readingsHtml;
+
+    // Bind tag click events
+    $$('#readings-list .tag[data-tag]').forEach(tag => {
+      tag.addEventListener('click', () => filterByTag(tag.dataset.tag));
+    });
+
+    // Bind clear filter
+    const clearBtn = $('#readings-list .clear-filter');
+    if (clearBtn) {
+      clearBtn.addEventListener('click', clearTagFilter);
+    }
+  }
+
+  function filterByTag(tag) {
+    activeTagFilter = tag;
+    const filtered = allReadings.filter(r => r.tags && r.tags.includes(tag));
+    renderReadings(filtered);
+  }
+
+  function clearTagFilter() {
+    activeTagFilter = null;
+    renderReadings(allReadings);
   }
 
   // Mini Terminal
