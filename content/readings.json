@@ -14,5 +14,13 @@
     "added": "2026-01-27",
     "url": "https://atelfo.github.io/2024/04/01/biotech-questions.html",
     "tags": ["biotech"]
+  },
+    {
+    "title": "The Adolescence of Technology",
+    "author": "Dario Amodei",
+    "note": "Dario's `Black seas of infinity` presents a catalogue of compounding risks, and reinforces that restraint is structurally hard because of structural incentives.",
+    "added": "2026-02-05",
+    "url": "https://www.darioamodei.com/essay/the-adolescence-of-technology",
+    "tags": ["AI"]
   }
 ]
