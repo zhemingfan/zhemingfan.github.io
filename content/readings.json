@@ -22,5 +22,13 @@
     "added": "2026-02-05",
     "url": "https://www.darioamodei.com/essay/the-adolescence-of-technology",
     "tags": ["AI"]
+  },
+  {
+    "title": "Advancing regulatory variant effect prediction with AlphaGenome",
+    "author": "Žiga Avsec et al.",
+    "note": "AlphaGenome still struggles most with long-range regulatory biology, where distal enhancers and complex 3D chromatin effects can sit far from the variant and remain difficult to model reliably. Its training and evaluation are also skewed toward protein-coding genes, with weaker coverage for non-coding classes (for example microRNAs) and incomplete modality coverage, since signals like DNA methylation and RNA structural features are not yet fully modeled.",
+    "added": "2026-02-12",
+    "url": "https://www.nature.com/articles/s41586-025-10014-0",
+    "tags": ["computational biology", "genomics"]
   }
 ]
