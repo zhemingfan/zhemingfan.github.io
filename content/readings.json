@@ -30,5 +30,13 @@
     "added": "2026-02-12",
     "url": "https://www.nature.com/articles/s41586-025-10014-0",
     "tags": ["computational biology", "genomics"]
+  },
+  {
+    "title": "Deep models of protein evolution in time generate realistic evolutionary trajectories and functional proteins",
+    "author": "Antoine Koehl, Sebastian Prillo, Matthew Liu et al.",
+    "note": "Introduces time-aware deep generative models of protein evolution that condition on phylogenetic time to produce sequences tracing realistic evolutionary trajectories. The approach moves beyond static fitness landscapes by explicitly modeling the temporal dynamics of sequence change, and the generated proteins are experimentally verified to be functional.",
+    "added": "2026-02-21",
+    "url": "https://www.biorxiv.org/content/10.64898/2026.02.19.706898v1",
+    "tags": ["computational biology", "protein design", "evolution"]
   }
 ]
