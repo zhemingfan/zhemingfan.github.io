@@ -280,7 +280,8 @@ main { flex: 1; padding: 48px 0; }
   border-bottom: 1px solid var(--border);
 }
 .project-item:last-child { border-bottom: none; }
-.project-title { font-weight: 500; margin-bottom: 4px; }
+.project-title { font-weight: 500; margin-bottom: 4px; display: flex; align-items: center; gap: 8px; }
+.badge-beta { font-size: 0.7rem; font-weight: 600; padding: 2px 7px; border-radius: 10px; background: var(--accent); color: var(--bg); opacity: 0.85; letter-spacing: 0.04em; }
 .project-desc { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 8px; }
 .project-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; }
 .tag {

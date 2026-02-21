@@ -47,14 +47,7 @@
   function handleHash() {
     const hash = window.location.hash.slice(1) || 'about';
 
-    if (hash.startsWith('blog/')) {
-      showSection('blog');
-      loadPost(hash.replace('blog/', ''));
-      return;
-    }
-
     showSection(hash);
-    if (hash === 'blog') showBlogList();
   }
 
   function showSection(id) {
@@ -64,82 +57,6 @@
 
     $$('.nav-link').forEach(l => {
       l.classList.toggle('active', l.dataset.section === id);
-    });
-  }
-
-  // Blog
-  let posts = [];
-
-  async function loadBlogIndex() {
-    try {
-      const res = await fetch('./content/blog/index.json');
-      if (!res.ok) throw new Error('Failed to fetch');
-      posts = await res.json();
-      renderBlogList();
-    } catch (e) {
-      $('#blog-list').innerHTML = '<p class="muted">More to come.</p>';
-    }
-  }
-
-  function renderBlogList() {
-    if (!posts.length) {
-      $('#blog-list').innerHTML = '<p class="muted">More to come.</p>';
-      return;
-    }
-    $('#blog-list').innerHTML = posts.map(p => `
-      <article class="post-item" tabindex="0" data-slug="${p.slug}">
-        <div class="post-title">${esc(p.title)}</div>
-        <div class="post-date">${formatDate(p.date)}</div>
-        <div class="post-summary">${esc(p.summary)}</div>
-      </article>
-    `).join('');
-
-    $$('.post-item').forEach(item => {
-      item.addEventListener('click', () => window.location.hash = `blog/${item.dataset.slug}`);
-      item.addEventListener('keydown', e => {
-        if (e.key === 'Enter') window.location.hash = `blog/${item.dataset.slug}`;
-      });
-    });
-  }
-
-  async function loadPost(slug) {
-    const contentEl = $('#blog-post-content');
-    const listEl = $('#blog-list');
-    const postEl = $('#blog-post');
-
-    try {
-      const url = `./content/blog/${slug}.md`;
-      console.log('Fetching:', url);
-      const res = await fetch(url);
-      console.log('Response:', res.status, res.statusText);
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      const md = await res.text();
-      console.log('Content length:', md.length);
-      const { meta, content } = parseFrontmatter(md);
-
-      contentEl.innerHTML = `
-        <h1>${esc(meta.title || 'Untitled')}</h1>
-        <div class="post-date">${formatDate(meta.date)}</div>
-        ${marked.parse(content)}
-      `;
-      listEl.hidden = true;
-      postEl.hidden = false;
-    } catch (e) {
-      console.error('Load post error:', e);
-      contentEl.innerHTML = `<p class="error">Could not load post: ${esc(slug)}<br><small>${esc(e.message)}</small></p>`;
-      listEl.hidden = true;
-      postEl.hidden = false;
-    }
-  }
-
-  function showBlogList() {
-    $('#blog-list').hidden = false;
-    $('#blog-post').hidden = true;
-  }
-
-  function initBackBtn() {
-    $('.back-btn').addEventListener('click', () => {
-      window.location.hash = 'blog';
     });
   }
 
@@ -189,11 +106,15 @@
     }
     $('#projects-list').innerHTML = projs.map(p => `
       <article class="project-item">
-        <div class="project-title">${esc(p.title)}</div>
+        <div class="project-title">
+          ${esc(p.title)}
+          ${p.beta ? `<span class="badge-beta">beta</span>` : ''}
+        </div>
         <div class="project-desc">${esc(p.description)}</div>
         ${p.tags ? `<div class="project-tags">${p.tags.map(t => `<span class="tag">${esc(t)}</span>`).join('')}</div>` : ''}
         <div class="project-links">
-          ${p.github ? `<a href="${esc(p.github)}" target="_blank" rel="noopener">GitHub</a>` : ''}
+          ${p.link ? `<a href="${esc(p.link)}" target="_blank" rel="noopener">${esc(p.linkLabel || 'Link')}</a>` : ''}
+          ${p.github ? `<a href="${esc(p.github)}" target="_blank" rel="noopener">GitHub${p.beta ? ' (private)' : ''}</a>` : ''}
           ${p.demo ? `<a href="${esc(p.demo)}" target="_blank" rel="noopener">Demo</a>` : ''}
         </div>
       </article>
@@ -357,9 +278,7 @@
   function init() {
     initTheme();
     initNav();
-    initBackBtn();
     initTerminal();
-    loadBlogIndex();
     loadPublications();
     loadProjects();
     loadReadings();
