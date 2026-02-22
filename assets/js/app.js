@@ -114,7 +114,7 @@
         ${p.tags ? `<div class="project-tags">${p.tags.map(t => `<span class="tag">${esc(t)}</span>`).join('')}</div>` : ''}
         <div class="project-links">
           ${p.link ? `<a href="${esc(p.link)}" target="_blank" rel="noopener">${esc(p.linkLabel || 'Link')}</a>` : ''}
-          ${p.github ? `<a href="${esc(p.github)}" target="_blank" rel="noopener">GitHub${p.beta ? ' (private)' : ''}</a>` : ''}
+          ${p.github ? `<a href="${esc(p.github)}" target="_blank" rel="noopener">GitHub</a>` : ''}
           ${p.demo ? `<a href="${esc(p.demo)}" target="_blank" rel="noopener">Demo</a>` : ''}
         </div>
       </article>

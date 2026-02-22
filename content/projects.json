@@ -1,12 +1,12 @@
 [
   {
-    "title": "BioFmt (beta)",
+    "title": "BioFmt",
     "description": "VS Code extension for viewing bioinformatics files with syntax highlighting, diagnostics, hover tooltips, and fast interactive previews (VCF, SAM, BED, GTF/GFF3, etc.).",
     "tags": ["TypeScript", "VS Code", "Bioinformatics"],
     "link": "https://marketplace.visualstudio.com/items?itemName=jfan.biofmt",
     "linkLabel": "VS Code Marketplace",
     "github": "https://github.com/zhemingfan/BioFmt",
-    "beta": true
+    "beta": false
   },
   {
     "title": "MAVIS",
