@@ -129,7 +129,7 @@
     try {
       const res = await fetch('./content/readings.json');
       if (!res.ok) throw new Error('Failed');
-      allReadings = await res.json();
+      allReadings = (await res.json()).sort((a, b) => new Date(b.added) - new Date(a.added));
       renderReadings(allReadings);
     } catch (e) {
       $('#readings-list').innerHTML = '<p class="muted">More to come.</p>';
@@ -181,69 +181,6 @@
     renderReadings(allReadings);
   }
 
-  // Mini Terminal
-  function initTerminal() {
-    const input = $('#term-input');
-    const output = $('#term-output');
-    if (!input || !output) return;
-
-    const commands = {
-      help: () => `Available commands:
-  <span class="term-cmd">help</span>     - show this message
-  <span class="term-cmd">skills</span>   - what I work with
-  <span class="term-cmd">contact</span>  - how to reach me
-  <span class="term-cmd">pubs</span>     - publication highlights
-  <span class="term-cmd">coffee</span>   - important info
-  <span class="term-cmd">clear</span>    - clear terminal`,
-
-      skills: () => `<span class="term-highlight">Languages:</span> Python, R, Bash, SQL, Java
-<span class="term-highlight">Areas:</span> Bioinformatics, Genomics, ML, Data Pipelines
-<span class="term-highlight">Tools:</span> Docker, Snakemake, Nextflow, AWS, Git
-<span class="term-highlight">Libraries:</span> Pandas, Tidyverse, ggplot2, Scikit-Learn`,
-
-      contact: () => `<span class="term-highlight">LinkedIn:</span> linkedin.com/in/jeremy-f-0a9039a1
-<span class="term-muted">For inquiries, reach out via LinkedIn</span>`,
-
-      pubs: () => `<span class="term-highlight">First-author publications:</span>
-• Long-read cancer SV analysis
-• CHM13-T2T reference genome evaluation
-• BugSeq metagenomics platform
-
-<span class="term-muted">See Publications tab for full list</span>`,
-
-      coffee: () => `I take mine black. Good taste.`,
-
-      clear: () => { output.innerHTML = ''; return ''; }
-    };
-
-    const processCommand = (cmd) => {
-      const trimmed = cmd.trim().toLowerCase();
-      if (!trimmed) return '';
-      if (commands[trimmed]) return commands[trimmed]();
-      return `Command not found: ${esc(trimmed)}. Type <span class="term-cmd">help</span> for options.`;
-    };
-
-    input.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') {
-        const cmd = input.value;
-        const result = processCommand(cmd);
-
-        if (cmd.trim()) {
-          output.innerHTML += `<div class="term-line"><span class="term-prompt">→</span> ${esc(cmd)}</div>`;
-        }
-        if (result) {
-          output.innerHTML += `<div class="term-result">${result}</div>`;
-        }
-
-        input.value = '';
-        output.scrollTop = output.scrollHeight;
-      }
-    });
-
-    // Show initial hint
-    output.innerHTML = '<div class="term-muted">Type <span class="term-cmd">help</span> to see available commands</div>';
-  }
-
   // Utilities
   function parseFrontmatter(text) {
     const match = text.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
@@ -274,11 +211,121 @@
     return el.innerHTML;
   }
 
+  // GitHub Contribution Graph
+  async function loadContribGraph() {
+    const container = $('#contrib-graph');
+    if (!container) return;
+    try {
+      const res = await fetch('https://github-contributions-api.jogruber.de/v4/zhemingfan');
+      if (!res.ok) throw new Error('Failed');
+      const data = await res.json();
+      renderContribGraph(data.contributions);
+    } catch (e) {
+      container.style.display = 'none';
+    }
+  }
+
+  function renderContribGraph(contributions) {
+    const container = $('#contrib-graph');
+    const CELL = 10, GAP = 2, WEEK_W = CELL + GAP;
+
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const dataMap = {};
+    contributions.forEach(c => { dataMap[c.date] = c; });
+
+    // Align start to the Sunday 52 weeks back
+    const start = new Date(today);
+    start.setDate(start.getDate() - today.getDay() - 52 * 7);
+
+    const weeks = [];
+    const cursor = new Date(start);
+    while (cursor <= today) {
+      const week = [];
+      for (let d = 0; d < 7; d++) {
+        const dateStr = cursor.toISOString().slice(0, 10);
+        const inRange = cursor <= today;
+        week.push({
+          date: dateStr,
+          count: dataMap[dateStr]?.count ?? 0,
+          level: inRange ? (dataMap[dateStr]?.level ?? 0) : 0,
+          inRange,
+        });
+        cursor.setDate(cursor.getDate() + 1);
+      }
+      weeks.push(week);
+    }
+
+    const year = today.getFullYear();
+    const total = contributions
+      .filter(c => c.date.startsWith(year))
+      .reduce((sum, c) => sum + c.count, 0);
+
+    const monthLabels = weeks.map((week, i) => {
+      const d = new Date(week[0].date);
+      const isNew = i === 0 || new Date(weeks[i - 1][0].date).getMonth() !== d.getMonth();
+      return `<span class="contrib-month" style="min-width:${WEEK_W}px">${isNew ? d.toLocaleString('default', { month: 'short' }) : ''}</span>`;
+    }).join('');
+
+    const cells = weeks.map(week =>
+      week.map(day =>
+        `<div class="contrib-cell" data-level="${day.level}" data-date="${day.date}" data-count="${day.count}"></div>`
+      ).join('')
+    ).join('');
+
+    container.innerHTML = `
+      <div class="contrib-header">
+        <span class="contrib-label">Activity</span>
+        <span class="contrib-total">${total.toLocaleString()} contributions in ${year}</span>
+      </div>
+      <div class="contrib-scroll">
+        <div class="contrib-body">
+          <div class="contrib-day-labels">
+            <span></span><span>Mon</span><span></span><span>Wed</span><span></span><span>Fri</span><span></span>
+          </div>
+          <div class="contrib-right">
+            <div class="contrib-months-row">${monthLabels}</div>
+            <div class="contrib-grid">${cells}</div>
+          </div>
+        </div>
+      </div>
+      <div class="contrib-legend">
+        <span class="contrib-legend-label">Less</span>
+        <div class="contrib-cell" data-level="0"></div>
+        <div class="contrib-cell" data-level="1"></div>
+        <div class="contrib-cell" data-level="2"></div>
+        <div class="contrib-cell" data-level="3"></div>
+        <div class="contrib-cell" data-level="4"></div>
+        <span class="contrib-legend-label">More</span>
+      </div>
+    `;
+
+    const tooltipEl = document.createElement('div');
+    tooltipEl.className = 'contrib-tooltip';
+    document.body.appendChild(tooltipEl);
+
+    $$('#contrib-graph .contrib-cell[data-date]').forEach(cell => {
+      cell.addEventListener('mouseenter', () => {
+        const n = cell.dataset.count;
+        tooltipEl.textContent = `${n === '0' ? 'No contributions' : n + ' contribution' + (n === '1' ? '' : 's')} · ${cell.dataset.date}`;
+        tooltipEl.style.display = 'block';
+      });
+      cell.addEventListener('mousemove', e => {
+        tooltipEl.style.left = `${e.clientX + 12}px`;
+        tooltipEl.style.top = `${e.clientY - 32}px`;
+      });
+      cell.addEventListener('mouseleave', () => {
+        tooltipEl.style.display = 'none';
+      });
+    });
+  }
+
   // Init
   function init() {
     initTheme();
     initNav();
-    initTerminal();
+    loadContribGraph();
     loadPublications();
     loadProjects();
     loadReadings();

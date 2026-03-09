@@ -1,27 +1,27 @@
 [
   {
-    "title": "How do you use a virtual cell to do something actually useful?",
-    "author": "Abhishaike Mahajan",
-    "note": "Explores practical applications of virtual cell models in cancer drug development, demonstrating how computational models trained on human tumor data can identify immunotherapy responders, refine clinical trial eligibility, and discover therapeutic targets.",
-    "added": "2026-01-27",
-    "url": "https://www.owlposting.com/p/how-do-you-use-a-virtual-cell-to",
-    "tags": ["computational biology", "drug discovery"]
+    "title": "nanochat",
+    "author": "Andrej Karpathy",
+    "note": "A minimal full-stack ChatGPT training pipeline covering tokenization, pretraining, finetuning, evaluation, and inference in a single readable codebase. Designed around one dial (transformer depth) that auto-sets all hyperparameters to produce a compute-optimal model, making a GPT-2-level chatbot trainable for under $100.",
+    "added": "2026-03-08",
+    "url": "https://github.com/karpathy/nanochat",
+    "tags": ["AI", "LLM", "open source"]
   },
   {
-    "title": "Some questions about biotech that I find interesting",
-    "author": "Alex Telford",
-    "note": "Collection of open questions about the biotech and pharma industries, spanning R&D productivity, corporate dynamics, drug discovery mechanics, and regulatory frameworks.",
-    "added": "2026-01-27",
-    "url": "https://atelfo.github.io/2024/04/01/biotech-questions.html",
-    "tags": ["biotech"]
+    "title": "Time-of-day immunochemotherapy in non-small cell lung cancer: a randomized phase 3 trial",
+    "author": "LungTIME-C01 investigators",
+    "note": "A phase 3 trial examining whether early versus late time-of-day infusions of anti-PD-1 therapy affect outcomes in treatment-naive stage IIIC-IV NSCLC. The patient recruitment protocol, social determinants of health, and unusually smooth KM curves bring the study design into question.",
+    "added": "2026-03-08",
+    "url": "https://www.nature.com/articles/s41591-025-04181-w",
+    "tags": ["clinical trial", "oncology", "immunotherapy"]
   },
-    {
-    "title": "The Adolescence of Technology",
-    "author": "Dario Amodei",
-    "note": "Dario's `Black seas of infinity` presents a catalogue of compounding risks, and reinforces that restraint is structurally hard because of structural incentives.",
-    "added": "2026-02-05",
-    "url": "https://www.darioamodei.com/essay/the-adolescence-of-technology",
-    "tags": ["AI"]
+  {
+    "title": "Deep models of protein evolution in time generate realistic evolutionary trajectories and functional proteins",
+    "author": "Antoine Koehl, Sebastian Prillo, Matthew Liu et al.",
+    "note": "Introduces time-aware deep generative models of protein evolution that condition on phylogenetic time to produce sequences tracing realistic evolutionary trajectories. The approach moves beyond static fitness landscapes by explicitly modeling the temporal dynamics of sequence change, and the generated proteins are experimentally verified to be functional.",
+    "added": "2026-02-21",
+    "url": "https://www.biorxiv.org/content/10.64898/2026.02.19.706898v1",
+    "tags": ["computational biology", "protein design", "evolution"]
   },
   {
     "title": "Advancing regulatory variant effect prediction with AlphaGenome",
@@ -32,11 +32,27 @@
     "tags": ["computational biology", "genomics"]
   },
   {
-    "title": "Deep models of protein evolution in time generate realistic evolutionary trajectories and functional proteins",
-    "author": "Antoine Koehl, Sebastian Prillo, Matthew Liu et al.",
-    "note": "Introduces time-aware deep generative models of protein evolution that condition on phylogenetic time to produce sequences tracing realistic evolutionary trajectories. The approach moves beyond static fitness landscapes by explicitly modeling the temporal dynamics of sequence change, and the generated proteins are experimentally verified to be functional.",
-    "added": "2026-02-21",
-    "url": "https://www.biorxiv.org/content/10.64898/2026.02.19.706898v1",
-    "tags": ["computational biology", "protein design", "evolution"]
+    "title": "The Adolescence of Technology",
+    "author": "Dario Amodei",
+    "note": "Dario's `Black seas of infinity` presents a catalogue of compounding risks, and reinforces that restraint is structurally hard because of structural incentives.",
+    "added": "2026-02-05",
+    "url": "https://www.darioamodei.com/essay/the-adolescence-of-technology",
+    "tags": ["AI"]
+  },
+  {
+    "title": "Some questions about biotech that I find interesting",
+    "author": "Alex Telford",
+    "note": "Collection of open questions about the biotech and pharma industries, spanning R&D productivity, corporate dynamics, drug discovery mechanics, and regulatory frameworks.",
+    "added": "2026-01-27",
+    "url": "https://atelfo.github.io/2024/04/01/biotech-questions.html",
+    "tags": ["biotech"]
+  },
+  {
+    "title": "How do you use a virtual cell to do something actually useful?",
+    "author": "Abhishaike Mahajan",
+    "note": "Explores practical applications of virtual cell models in cancer drug development, demonstrating how computational models trained on human tumor data can identify immunotherapy responders, refine clinical trial eligibility, and discover therapeutic targets.",
+    "added": "2026-01-27",
+    "url": "https://www.owlposting.com/p/how-do-you-use-a-virtual-cell-to",
+    "tags": ["computational biology", "drug discovery"]
   }
 ]
