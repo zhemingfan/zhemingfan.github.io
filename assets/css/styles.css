@@ -233,8 +233,9 @@ main { flex: 1; padding: 48px 0; }
   border-radius: 3px;
   color: var(--text-muted);
 }
-.project-links { font-size: 0.85rem; }
-.project-links a { margin-right: 12px; }
+.project-links { font-size: 0.85rem; display: flex; align-items: center; gap: 12px; }
+.project-icon-link { display: inline-flex; align-items: center; color: var(--text-muted); transition: color 0.15s; }
+.project-icon-link:hover { color: var(--accent); text-decoration: none; }
 
 /* Blog */
 .post-item {
