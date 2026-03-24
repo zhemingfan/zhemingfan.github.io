@@ -1,5 +1,13 @@
 [
   {
+    "title": "Pi: The Minimal Agent Within OpenClaw",
+    "author": "Armin Ronacher",
+    "note": "Argues that the future of coding agents lies in a minimal core (read, write, edit, bash) paired with self-extension: rather than loading pre-built plugins, the agent writes its own tools on demand. A pointed contrast to heavier orchestration frameworks and a case for embracing LLMs as code generators rather than wrapping them in elaborate scaffolding.",
+    "added": "2026-03-24",
+    "url": "https://lucumr.pocoo.org/2026/1/31/pi/",
+    "tags": ["AI", "LLM", "software engineering"]
+  },
+  {
     "title": "Nonlinear dynamics of multi-omics profiles during human aging",
     "author": "Xiaotao Shen et al.",
     "note": "Multi-omics profiling of 108 participants over up to 6.8 years reveals that molecular aging is not gradual but punctuated, with two pronounced waves of dysregulation at roughly ages 44 and 60. Pathways tied to oxidative stress, lipid metabolism, and immune regulation shift sharply at these transitions. The authors adjusted for BMI, sex, insulin resistance, and ethnicity via linear regression residualization before analysis, though the small longitudinal cohort limits how far the cliff interpretation can be pushed.",
