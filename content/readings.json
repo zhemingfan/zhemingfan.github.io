@@ -1,5 +1,13 @@
 [
   {
+    "title": "Nonlinear dynamics of multi-omics profiles during human aging",
+    "author": "Xiaotao Shen et al.",
+    "note": "Multi-omics profiling of 108 participants over up to 6.8 years reveals that molecular aging is not gradual but punctuated, with two pronounced waves of dysregulation at roughly ages 44 and 60. Pathways tied to oxidative stress, lipid metabolism, and immune regulation shift sharply at these transitions. The authors adjusted for BMI, sex, insulin resistance, and ethnicity via linear regression residualization before analysis, though the small longitudinal cohort limits how far the cliff interpretation can be pushed.",
+    "added": "2026-03-24",
+    "url": "https://www.nature.com/articles/s43587-024-00692-2",
+    "tags": ["aging", "multi-omics", "genomics"]
+  },
+  {
     "title": "nanochat",
     "author": "Andrej Karpathy",
     "note": "A minimal full-stack ChatGPT training pipeline covering tokenization, pretraining, finetuning, evaluation, and inference in a single readable codebase. Designed around one dial (transformer depth) that auto-sets all hyperparameters to produce a compute-optimal model, making a GPT-2-level chatbot trainable for under $100.",
