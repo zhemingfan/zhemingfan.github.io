@@ -1,5 +1,13 @@
 [
   {
+    "title": "Cancer has a surprising amount of detail",
+    "author": "Abhishaike Mahajan",
+    "note": "Argues that cancer's biological complexity is far deeper than classical biomarkers can capture, and that the remaining unexplained patient variation demands integrating many weak signals rather than hunting for single breakthroughs. Points to ArteraAI's 2025 FDA-approved prostate cancer test as a landmark moment for black-box predictive models in oncology.",
+    "added": "2026-03-25",
+    "url": "https://www.owlposting.com/p/cancer-has-a-surprising-amount-of",
+    "tags": ["oncology", "computational biology", "AI"]
+  },
+  {
     "title": "Pi: The Minimal Agent Within OpenClaw",
     "author": "Armin Ronacher",
     "note": "Argues that the future of coding agents lies in a minimal core (read, write, edit, bash) paired with self-extension: rather than loading pre-built plugins, the agent writes its own tools on demand. A pointed contrast to heavier orchestration frameworks and a case for embracing LLMs as code generators rather than wrapping them in elaborate scaffolding.",
