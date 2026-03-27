@@ -358,7 +358,7 @@ a.reading-title:hover { color: var(--accent); }
 .error { color: #cc0000; }
 
 /* Mobile */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   html { font-size: 17px; }
 
   .header { padding: 20px 0; }
