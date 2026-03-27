@@ -359,8 +359,10 @@ a.reading-title:hover { color: var(--accent); }
 
 /* Mobile */
 @media (max-width: 600px) {
+  html { font-size: 17px; }
+
   .header { padding: 20px 0; }
-  .logo { font-size: 2rem; }
+  .logo { font-size: 1.9rem; }
 
   .nav-toggle { display: flex; }
   .nav {
@@ -377,9 +379,19 @@ a.reading-title:hover { color: var(--accent); }
   }
   .nav.open { right: 0; }
   .nav-list { flex-direction: column; gap: 16px; }
+  .nav-link { font-size: 1rem; }
 
   main { padding: 32px 0; }
   .section-title { font-size: 1.5rem; }
+
+  .pub-authors, .pub-venue, .pub-links,
+  .post-date, .post-summary,
+  .reading-meta, .reading-note,
+  .project-desc { font-size: 0.95rem; }
+
+  .tag { font-size: 0.82rem; }
+  .reading-added { font-size: 0.82rem; }
+
   .reading-note, .pub-title, .pub-authors, .pub-venue, .project-desc {
     overflow-wrap: break-word;
   }
