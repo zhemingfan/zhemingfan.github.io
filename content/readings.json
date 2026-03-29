@@ -1,5 +1,13 @@
 [
   {
+    "title": "MARCUS: An agentic, multimodal vision-language model for cardiac diagnosis and management",
+    "author": "Jack W O'Sullivan, Mohammad Asadi et al.",
+    "note": "Introduces MARCUS, trained on 13.5M cardiac images, that substantially outperforms frontier models on ECG, echocardiography, and MRI interpretation. The paper's central concern is 'mirage reasoning' — models confabulating conclusions from textual co-occurrence rather than genuine visual analysis — which raises a harder question: how much apparent visual understanding in multimodal models is language-driven pattern completion dressed up as perception. These systems may be extraordinarily capable guessers, but the substrate of that capability deserves more scrutiny than benchmark numbers alone reveal.",
+    "added": "2026-03-29",
+    "url": "https://arxiv.org/abs/2603.22179",
+    "tags": ["AI", "multimodal", "clinical AI"]
+  },
+  {
     "title": "Cancer has a surprising amount of detail",
     "author": "Abhishaike Mahajan",
     "note": "Argues that cancer's biological complexity is far deeper than classical biomarkers can capture, and that the remaining unexplained patient variation demands integrating many weak signals rather than hunting for single breakthroughs. Points to ArteraAI's 2025 FDA-approved prostate cancer test as a landmark moment for black-box predictive models in oncology.",
