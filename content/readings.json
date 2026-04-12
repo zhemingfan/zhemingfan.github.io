@@ -1,5 +1,13 @@
 [
   {
+    "title": "EVEE: Interpretable variant effect prediction from genomic foundation model embeddings",
+    "author": "Michael T Pearce, Thomas Dooms, Ryo Yamamoto et al.",
+    "note": "Introduces EVEE: embeddings from Evo 2 (a 7B-parameter genomic foundation model) train a classifier hitting 0.997 AUROC on 839k ClinVar variants, generalizing zero-shot to indels and transferring to deep mutational scanning datasets for BRCA1, BRCA2, TP53, and LDLR. A circularity concern: ClinVar P/LP vs. B/LB labels come from curators applying ACMG/AMP criteria, and several of those (PVS1, PM1, PP3) rely on sequence-derivable features that overlap heavily with what the annotation probes decode — so how much of the AUROC reflects learned biology vs. recovering the rule-following pattern curators used to assign the labels? A clean test would stratify the held-out set by which ACMG evidence codes submitters cited, comparing AUROC on labels driven mainly by PS3/PS4/PP1 (functional assays, case-control, family segregation — evidence the model can't see) against those driven by PVS1/PM1/PP3.",
+    "added": "2026-04-12",
+    "url": "https://www.biorxiv.org/content/10.64898/2026.04.10.717844v1",
+    "tags": ["computational biology", "genomics", "AI"]
+  },
+  {
     "title": "MARCUS: An agentic, multimodal vision-language model for cardiac diagnosis and management",
     "author": "Jack W O'Sullivan, Mohammad Asadi et al.",
     "note": "Introduces MARCUS, trained on 13.5M cardiac images, that substantially outperforms frontier models on ECG, echocardiography, and MRI interpretation. The paper's framing of 'mirage reasoning', where models derive conclusions from textual signals rather than visual content, is a concrete instance of a broader pattern: a lot of apparent \"visual understanding\" in modern multimodal models may actually be language-driven pattern completion.",
