@@ -1,5 +1,13 @@
 [
   {
+    "title": "The AI rewrite dilemma",
+    "author": "Heng Li",
+    "note": "Heng Li Argues that AI-assisted rewrites of bioinformatics tools (e.g., C to Rust) are technicallyfeasible and legally permitted under open-source licenses, but the community hasn't fully acknowledged the cost of maintaining software. Very soon, there'll likely be software saturation as coding agents collapse the cost of porting. The sharper problem is who maintains the rewrite afterwards: the original authors might not be fluent in Rust themselves, so a well-intentioned port can strand the tool's domain expert from their own codebase, leaving the maintenance burden to land on whoever did the rewrite, or nobody at all.",
+    "added": "2026-04-17",
+    "url": "https://lh3.github.io/2026/04/17/the-ai-rewrite-dilemma",
+    "tags": ["AI", "bioinformatics", "software engineering"]
+  },
+  {
     "title": "EVEE: Interpretable variant effect prediction from genomic foundation model embeddings",
     "author": "Michael T Pearce, Thomas Dooms, Ryo Yamamoto et al.",
     "note": "Introduces EVEE: embeddings from Evo 2 (a 7B-parameter genomic foundation model) train a classifier hitting 0.997 AUROC on 839k ClinVar variants, generalizing zero-shot to indels and transferring to deep mutational scanning datasets for BRCA1, BRCA2, TP53, and LDLR. A circularity concern: ClinVar P/LP vs. B/LB labels come from curators applying ACMG/AMP criteria, and several of those (PVS1, PM1, PP3) rely on sequence-derivable features that overlap heavily with what the annotation probes decode — so how much of the AUROC reflects learned biology vs. recovering the rule-following pattern curators used to assign the labels? A clean test would stratify the held-out set by which ACMG evidence codes submitters cited, comparing AUROC on labels driven mainly by PS3/PS4/PP1 (functional assays, case-control, family segregation — evidence the model can't see) against those driven by PVS1/PM1/PP3.",
