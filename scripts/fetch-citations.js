@@ -28,6 +28,7 @@ async function fetchCitationCount(doi) {
 }
 
 const raw = JSON.parse(await readFile(PUB_PATH, 'utf8'));
+const existingMeta = Array.isArray(raw) ? {} : raw;
 const publications = Array.isArray(raw) ? raw : raw.publications;
 
 const updated = [];
@@ -49,6 +50,7 @@ for (const pub of publications) {
 }
 
 const out = {
+  ...existingMeta,
   lastUpdated: new Date().toISOString(),
   publications: updated,
 };

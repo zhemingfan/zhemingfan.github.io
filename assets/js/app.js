@@ -66,13 +66,13 @@
       const res = await fetch('./content/publications.json');
       if (!res.ok) throw new Error('Failed');
       const data = await res.json();
-      renderPublications(data.publications, data.lastUpdated);
+      renderPublications(data.publications, data);
     } catch (e) {
       $('#publications-list').innerHTML = '<p class="muted">No publications yet.</p>';
     }
   }
 
-  function hIndex(counts) {
+  function computeHIndex(counts) {
     const sorted = [...counts].sort((a, b) => b - a);
     let h = 0;
     for (let i = 0; i < sorted.length; i++) {
@@ -82,7 +82,7 @@
     return h;
   }
 
-  function renderPublications(pubs, lastUpdated) {
+  function renderPublications(pubs, meta) {
     if (!pubs.length) {
       $('#publications-list').innerHTML = '<p class="muted">No publications yet.</p>';
       return;
@@ -90,11 +90,12 @@
 
     const counts = pubs.map(p => p.citations).filter(c => typeof c === 'number');
     const total = counts.reduce((a, b) => a + b, 0);
+    const h = typeof meta.hIndex === 'number' ? meta.hIndex : computeHIndex(counts);
     const stats = `
       <div class="pub-stats">
         <div><span class="pub-stat-num">${pubs.length}</span><span class="pub-stat-label">publications</span></div>
         <div><span class="pub-stat-num">${total.toLocaleString()}</span><span class="pub-stat-label">total citations</span></div>
-        <div><span class="pub-stat-num">${hIndex(counts)}</span><span class="pub-stat-label">h-index</span></div>
+        <div><span class="pub-stat-num">${h}</span><span class="pub-stat-label">h-index</span></div>
       </div>
     `;
 
@@ -108,9 +109,10 @@
       </article>
     `).join('');
 
-    const footer = lastUpdated
-      ? `<p class="pub-updated">Citation counts via Crossref · last updated ${formatDate(lastUpdated)}</p>`
-      : '';
+    const footerParts = [];
+    if (meta.lastUpdated) footerParts.push(`Citation counts via Crossref · last updated ${formatDate(meta.lastUpdated)}`);
+    if (meta.googleScholar) footerParts.push(`<a href="${esc(meta.googleScholar)}" target="_blank" rel="noopener">View on Google Scholar →</a>`);
+    const footer = footerParts.length ? `<p class="pub-updated">${footerParts.join(' · ')}</p>` : '';
 
     $('#publications-list').innerHTML = stats + items + footer;
   }
