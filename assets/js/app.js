@@ -65,26 +65,54 @@
     try {
       const res = await fetch('./content/publications.json');
       if (!res.ok) throw new Error('Failed');
-      const pubs = await res.json();
-      renderPublications(pubs);
+      const data = await res.json();
+      renderPublications(data.publications, data.lastUpdated);
     } catch (e) {
       $('#publications-list').innerHTML = '<p class="muted">No publications yet.</p>';
     }
   }
 
-  function renderPublications(pubs) {
+  function hIndex(counts) {
+    const sorted = [...counts].sort((a, b) => b - a);
+    let h = 0;
+    for (let i = 0; i < sorted.length; i++) {
+      if (sorted[i] >= i + 1) h = i + 1;
+      else break;
+    }
+    return h;
+  }
+
+  function renderPublications(pubs, lastUpdated) {
     if (!pubs.length) {
       $('#publications-list').innerHTML = '<p class="muted">No publications yet.</p>';
       return;
     }
-    $('#publications-list').innerHTML = pubs.map(p => `
+
+    const counts = pubs.map(p => p.citations).filter(c => typeof c === 'number');
+    const total = counts.reduce((a, b) => a + b, 0);
+    const stats = `
+      <div class="pub-stats">
+        <div><span class="pub-stat-num">${pubs.length}</span><span class="pub-stat-label">publications</span></div>
+        <div><span class="pub-stat-num">${total.toLocaleString()}</span><span class="pub-stat-label">total citations</span></div>
+        <div><span class="pub-stat-num">${hIndex(counts)}</span><span class="pub-stat-label">h-index</span></div>
+      </div>
+    `;
+
+    const items = pubs.map(p => `
       <article class="pub-item">
         <div class="pub-title">${esc(p.title)}</div>
         <div class="pub-authors">${esc(p.authors).replace(/Fan J/g, '<strong class="author-highlight">Fan J</strong>')}</div>
         <div class="pub-venue">${esc(p.venue)}, ${p.year}</div>
+        ${typeof p.citations === 'number' ? `<div class="pub-citations" title="Citations via Crossref">Cited ${p.citations}${p.citations === 1 ? ' time' : ' times'}</div>` : ''}
         ${p.links ? `<div class="pub-links">${Object.entries(p.links).map(([k,v]) => `<a href="${esc(v)}" target="_blank" rel="noopener">${esc(k)}</a>`).join('')}</div>` : ''}
       </article>
     `).join('');
+
+    const footer = lastUpdated
+      ? `<p class="pub-updated">Citation counts via Crossref · last updated ${formatDate(lastUpdated)}</p>`
+      : '';
+
+    $('#publications-list').innerHTML = stats + items + footer;
   }
 
   // Projects
