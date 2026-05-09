@@ -1,7 +1,7 @@
 [
   {
     "title": "CIViC Compass",
-    "description": "Next.js app that answers whether a genomic alteration is clinically actionable, using a strict FDA-only registry (drug labeling and companion diagnostics). Pairs FDA actionability results with CIViC evidence browsing backed by Neo4j and a pinned SQLite snapshot.",
+    "description": "Next.js app that attempts to answer whether a genomic alteration is actionable per the FDA drug labeling, with CIViC evidence browsable alongside on Neo4j + SQLite. A natural-language search adds an LLM-backed RAG pipeline.",
     "tags": ["Next.js", "TypeScript", "Bioinformatics", "Genomics"],
     "link": "https://civiccompass.vercel.app",
     "linkLabel": "Vercel",
