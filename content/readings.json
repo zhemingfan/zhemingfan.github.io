@@ -1,5 +1,13 @@
 [
   {
+    "title": "RL Systems Mind the Gap: Matching Trainer and Generator Throughput",
+    "author": "Kimbo Chen, Cheang Kang Wen, Dylan Patel",
+    "note": "Frames RL post-training infrastructure around three actors (the generator, the RL environment, and the trainer) and argues that system efficiency comes down to matching trainer and generator throughput so neither sits idle. RL infrastructure is moving fast enough, though, that the specific techniques described here are likely already outdated.",
+    "added": "2026-06-17",
+    "url": "https://newsletter.semianalysis.com/p/rl-systems-mind-the-gap-matching",
+    "tags": ["AI", "RL", "infrastructure"]
+  },
+  {
     "title": "The AI rewrite dilemma",
     "author": "Heng Li",
     "note": "Heng Li Argues that AI-assisted rewrites of bioinformatics tools (e.g., C to Rust) are technicallyfeasible and legally permitted under open-source licenses, but the community hasn't fully acknowledged the cost of maintaining software. Very soon, there'll likely be software saturation as coding agents collapse the cost of porting. The sharper problem is who maintains the rewrite afterwards: the original authors might not be fluent in Rust themselves, so a well-intentioned port can strand the tool's domain expert from their own codebase, leaving the maintenance burden to land on whoever did the rewrite, or nobody at all.",
