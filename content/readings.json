@@ -1,5 +1,13 @@
 [
   {
+    "title": "The Best of Both Worlds - Assessing MiniBWA",
+    "author": "Andrew Carroll",
+    "note": "An independent validation of MiniBWA, Heng Li and Nils Homer's short-read mapper that builds on Minimap2 but falls back on BWA for the cases Minimap2 handled expensively without enough benefit. Across 76 species pulled from SRA, Carroll finds it strictly faster than BWA MEM on every sample, concordant on mapping rate to within 0.3%, and equal or slightly better for DeepVariant accuracy on mappable genomes, while trading recall for precision on the difficult ones. Outside of human, though, there is no gold-standard truth, so accuracy is measured against PacBio + Minimap2 + DeepVariant calls — and since MiniBWA inherits Minimap2's seeding and chaining, the aligner under test shares heuristics with the pipeline generating the labels.",
+    "added": "2026-07-28",
+    "url": "https://andrewcarroll.github.io/2026/06/30/the-best-of-both-worlds-assessing-minibwa.html",
+    "tags": ["bioinformatics", "genomics", "benchmarking"]
+  },
+  {
     "title": "RL Systems Mind the Gap: Matching Trainer and Generator Throughput",
     "author": "Kimbo Chen, Cheang Kang Wen, Dylan Patel",
     "note": "Frames RL post-training infrastructure around three actors (the generator, the RL environment, and the trainer) and argues that system efficiency comes down to matching trainer and generator throughput so neither sits idle. RL infrastructure is moving fast enough, though, that the specific techniques described here are likely already outdated.",
